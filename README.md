@@ -2,7 +2,7 @@
 
 Help farmers manage their crops.
 
-The frontend of this application lives here:
+The frontend of this application lives here: https://github.com/Mithun-750/Swarna-Krishi-app
 
 ## Credits
 
