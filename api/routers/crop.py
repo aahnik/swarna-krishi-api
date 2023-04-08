@@ -61,7 +61,7 @@ async def delete_crop(user: GcauDep, crop_id: PydanticObjectId):
 
 
 @router.post("/fertilizer-recommend/{crop_id}")
-async def fertilizer_recommend(user: GcauDep, crop_id: PydanticObjectId):
+async def fertilizer_recommend(user: GcauDep, crop_id: PydanticObjectId) -> List[str]:
     crop = await Crop.find_one(Crop.id == crop_id, Crop.user.id == user.id)
     if not crop:
         raise crop_not_found_exc
@@ -71,5 +71,8 @@ async def fertilizer_recommend(user: GcauDep, crop_id: PydanticObjectId):
     if not (land.nitrogen and land.phosphorous and land.potassium):
         raise land_missing_details_exc
     return predictor.fertilizer_recommend(
-        N=land.nitrogen, P=land.phosphorous, K=land.potassium, crop_name=crop.crop_name
+        N=land.nitrogen,
+        P=land.phosphorous,
+        K=land.potassium,
+        crop_name=crop.crop_name,
     )
