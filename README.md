@@ -2,6 +2,12 @@
 
 Help farmers manage their crops.
 
+The frontend of this application lives here:
+
+## Credits
+
+The crop and fertilizer predictions in our app is possible due to this open source project (https://github.com/Gladiator07/Harvestify) by [Atharva Ingle](https://www.linkedin.com/in/atharva-ingle-564430187/)
+
 ## Run
 
 ```shell
