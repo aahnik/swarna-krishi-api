@@ -11,7 +11,7 @@ class CropIn(BaseModel):
     crop_name: str
     irrigation_interval_days: int | None = None  # in days
     fertilization_interval_days: int | None = None  # in days
-    soil_type: str | None = None
+    land_id: PydanticObjectId
     sow_time: datetime | None = None
     harvest_time: datetime | None = None  # in months
 
