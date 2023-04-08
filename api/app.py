@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
-
+from fastapi.middleware.cors import CORSMiddleware
 from api.config import CONFIG
 from api.models.user import UserInDB
 from api.models.crop import Crop
@@ -14,6 +14,16 @@ Add crops by farmer
 
 """
 app = FastAPI(title="Swarna Krishi API", version="0.0.1", description=description)
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/")
